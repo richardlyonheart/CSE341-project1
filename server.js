@@ -4,7 +4,7 @@ const mongodb = require('./data/database');
 const app = express();
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 app.use('/', require('./routes'));
 
