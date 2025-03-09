@@ -1,6 +1,5 @@
 const { response } = require('express');
 const mongodb = require('../data/database');
-const search = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
     const result = await mongodb.getDatabase().db('contacts').collection('contacts').find();
@@ -12,8 +11,8 @@ const getAll = async (req, res) => {
 
 const getSingle = async (req, res) => {
     try {
-        const userId = new mongodb.ObjectID(req.params.id); // Ensure ObjectId is correctly created
-        const result = await mongodb.getDatabase().db('contacts').collection('contacts').find({_id: userId});
+        const contactId = new mongodb.ObjectID(req.params.id); // Ensure ObjectId is correctly created
+        const result = await mongodb.getDatabase().db('contacts').collection('contacts').find({_id: contactId});
         const contacts = await result.toArray();
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(contacts.length > 0 ? contacts : []);
