@@ -15,7 +15,7 @@ const getSingle = async (req, res) => {
         const result = await mongodb.getDatabase().db('contacts').collection('contacts').find({_id: contactId});
         const contacts = await result.toArray();
         res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(contacts.length > 0 ? contacts : []);
+        res.status(200).json(contacts[0]);
     } catch (error) {
         res.status(500).json({ error: 'An error occurred while fetching the contact.' });
     }
