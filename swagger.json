@@ -8,7 +8,7 @@
   "host": "cse341-project1-egqo.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "http", "https"
   ],
   "paths": {
     "/": {
